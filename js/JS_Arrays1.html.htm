@@ -1,0 +1,159 @@
+JavaScript Array Methods
+<!DOCTYPE HTML>
+<html>
+<head></head>
+<!-- onblur -->
+<body>
+<h2>JavaScript Array Methods</h2>
+
+<p>Converting Arrays to Strings</p>
+
+<p id="demo"></p><p id="demo1"></p><p id="demo2"></p><p id="demo3"></p><p id="demo4"></p>
+<p id="demo5"></p><p id="demo6"></p><p id="demo7"></p><p id="demo8"></p><p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo11"></p>
+<p id="demo12"></p>
+<p id="demo13"></p>
+<p id="demo14"></p>
+<button onclick="func()" value="splice" name="splice">SPLICE</button>
+<p id="demo15"></p>
+<p id="demo16"></p>
+<p id="demo17"></p>
+<p id="demo18"></p>
+<button onclick="fun1()" value="splice" name="splice">SPLICE again</button>
+<p id="demo19"></p>
+<p id="demo20"></p>
+<p id="demo21"></p>
+<p id="demo22"></p>
+<p id="demo23"></p>
+<p id="demo24"></p>
+<p id="demo25"></p>
+<p id="demo26"></p>
+<p id="demo27"></p>
+<p id="demo28"></p>
+<p id="demo29"></p>
+<p id="demo30"></p>
+
+<script>
+/*Converting Arrays to Strings
+The JavaScript method toString() converts an array to a string of (comma separated) array values.*/
+var fruits=["apple","Mango","Banana","Orange"];
+document.getElementById("demo").innerHTML=fruits.toString(); //apple,Mango,Banana,Orange
+
+/*The join() method also joins all array elements into a string.
+
+It behaves just like toString(), but in addition you can specify the separator:*/
+document.getElementById("demo1").innerHTML=fruits.join("##"); //apple##Mango##Banana##Orange
+
+/*Popping and Pushing
+When you work with arrays, it is easy to remove elements and add new elements.
+
+This is what popping and pushing is:
+
+Popping items out of an array, or pushing items into an array.
+
+Popping
+The pop() method removes the last element from an array:
+The pop() method returns the value that was "popped out":
+
+Pushing
+The push() method adds a new element to an array (at the end):
+The push() method returns the new array length:
+*/
+var x=fruits.pop();
+var y=fruits.push("Grapes");
+document.getElementById("demo2").innerHTML=x; //Orange
+document.getElementById("demo3").innerHTML=y; //4
+document.getElementById("demo4").innerHTML=fruits.toString();//apple,Mango,Banana,Grapes
+
+/*Shifting Elements
+Shifting is equivalent to popping, working on the first element instead of the last.
+
+The shift() method removes the first array element and "shifts" all other elements to a lower index.
+The shift() method returns the string that was "shifted out":*/
+
+var z=fruits.shift();
+document.getElementById("demo5").innerHTML=z; //apple
+document.getElementById("demo6").innerHTML=fruits.toString();//Mango,Banana,Grapes
+
+/*The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:
+The unshift() method returns the new array length.*/
+
+var a=fruits.unshift("Water-Melon");
+document.getElementById("demo7").innerHTML=a; //4
+document.getElementById("demo8").innerHTML=fruits.toString();//Water-Melon,Mango,Banana,Grapes
+
+/*Changing Elements
+Array elements are accessed using their index number:
+
+Array indexes start with 0. [0] is the first array element, [1] is the second, [2] is the third ...*/
+
+fruits[0]="Lichi";
+document.getElementById("demo9").innerHTML=fruits.toString(); //Lichi,Mango,Banana,Grapes
+fruits[fruits.length]="Water-Melon";
+document.getElementById("demo10").innerHTML=fruits.toString(); // Lichi,Mango,Banana,Grapes,Water-Melon
+
+fruits.splice(2,1);
+document.getElementById("demo24").innerHTML=fruits.toString();
+/*Deleting Elements
+Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator delete:
+Using delete may leave undefined holes in the array. Use pop() or shift() instead.*/
+
+delete fruits[0];
+delete fruits[2];
+document.getElementById("demo11").innerHTML=fruits.toString();// ,Mango,,Grapes,Water-Melon
+document.getElementById("demo12").innerHTML=fruits[0];//undefined
+document.getElementById("demo13").innerHTML=fruits[1];//Mango
+document.getElementById("demo14").innerHTML=fruits[2];//undefined
+
+/*Splicing an Array
+The splice() method can be used to add new items to an array:
+The first parameter (2) defines the position where new elements should be added (spliced in).
+
+The second parameter (0) defines how many elements should be removed.
+
+The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+
+The splice() method returns an array with the deleted items:*/
+function func()
+{
+	document.getElementById("demo15").innerHTML=fruits;//,Mango,,Grapes,Water-Melon
+	var deleted=fruits.splice(2,2,"Papaya","Lemon");
+	document.getElementById("demo16").innerHTML=fruits;//,Mango,Papaya,Lemon,Water-Melon
+	document.getElementById("demo17").innerHTML=deleted;//,Grapes
+	document.getElementById("demo18").innerHTML=fruits[3]; //Lemon
+	
+}
+function fun1()
+{
+document.getElementById("demo19").innerHTML=fruits;//,Mango,,Grapes,Water-Melon
+	var deleted=fruits.splice(1,1,"Papaya","Lemon");
+	document.getElementById("demo20").innerHTML=fruits;//,Papaya,Lemon,,Grapes,Water-Melon
+	document.getElementById("demo21").innerHTML=deleted;//Mango
+	document.getElementById("demo22").innerHTML=fruits[3];//undefined
+	}
+/*Using splice() to Remove Elements
+With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:
+
+Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(0, 1);        // Removes the first element of fruits --output: Orange,Apple,Mango
+The first parameter (0) defines the position where new elements should be added (spliced in).
+
+The second parameter (1) defines how many elements should be removed.
+
+The rest of the parameters are omitted. No new elements will be added.*/
+
+/*Merging (Concatenating) Arrays
+The concat() method creates a new array by merging (concatenating) existing arrays:*/
+var colors=["red","green","blue"];
+var flowers=["rose","lotus","Lily"];
+var both=colors.concat(flowers);
+document.getElementById("demo23").innerHTML=both;
+
+
+
+
+</script>
+</body>
+</html>

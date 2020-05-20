@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head></head>
+<body>
+</br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br>
+<button onclick="open1()"> Open</button>
+<button onclick="resizeto()"> ResizeTo</button>
+<button onclick="resizeby()"> ResizeBy</button>
+<button onclick="Move1()"> Move</button>
+<button onclick="close1()"> Close</button>
+
+<script>
+var win;
+
+/*Syntax: 
+
+window.open([URL],[NAME],[SPECS],[REPLACE]); 
+
+URL - (OPTIONAL) Specifies the URL you want to open. If left blank, a blank page is opened instead. 
+
+NAME - (OPTIONAL) Specifies the target attribute of the name and window that is supported. These include _blank, _parent, _self, _top. 
+
+SPECS - (OPTIONAL) Comma separated items. 
+
+REPLACE - (OPTIONAL) Specifies whether the URL creates a new entry or not. */
+function open1()
+{
+win=window.open("","","width=100,height=100");
+win.document.write("aaa");
+}
+/* re-sizing windows.
+ If you want to set a specific size of the window during events, then you can do so by using the resizeBy() and resizeTo() methods. 
+
+The first we are going to tackle about is the resizeBy() method in which it re-sizes a window to a specified amount that is relative to the current size.
+ As note, the top right corner of the window will not be moved only the bottom right corner. 
+ Syntax: 
+
+resizeBy([WIDTH],[HEIGHT]) 
+
+WIDTH - (REQUIRED) Any integer that will be used to specify the amount of pixels in width. 
+
+HEIGHT - (REQUIRED) Any integer that will be used to specify the amount of pixels in height.
+
+The next one would be the resizeTo() method which is similar to the resizeBy() method. 
+The only difference is that this method re-sizes the window to the specified width and height of your choosing. 
+
+Syntax: 
+
+resizeTo([WIDTH],[HEIGHT]) 
+
+WIDTH - (REQUIRED) Any integer that will be used to specify the amount of pixels in width. 
+
+HEIGHT - (REQUIRED) Any integer that will be used to specify the amount of pixels in height. 
+ */
+function resizeto()
+{
+win.resizeTo(250,250);
+win.focus();
+}
+function resizeby()
+{
+win.resizeBy(250,250);
+win.focus();
+}
+function Move1()
+{
+win.moveTo(500,250);
+win.focus();
+}
+function close1()
+{
+win.close();
+}
+</script>
+</body>
+</html>
